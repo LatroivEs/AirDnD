@@ -1,7 +1,8 @@
 package com.mycompany.interfazapartahoteles;
 
+import com.mashape.unirest.http.Unirest;
+import com.mycompany.conAPI.APIcon;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -23,15 +24,18 @@ public class Login {
         
         listaUsuario.put("Antonio","1234");
         listaUsuario.put("Pedro","12345");
+        HttpResponse<JsonNode> apiResponse = Unirest.get("https://dog.ceo/api/breeds/image/random").asJson();
         
         if(listaUsuario.containsKey(UserInput.getText()))
             if(listaUsuario.get(UserInput.getText()).equals(PasswordInput.getText())){
                 App.setRoot("VistaReserva");
             }else{
-                feedback.setText("Password Incorrecto");             
+                feedback.setText("Password Incorrecto");
+                
             }
         else{
             feedback.setText("Usuario Incorrecto");
+            
         }
             
     }

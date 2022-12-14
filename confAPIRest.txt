@@ -1,0 +1,5 @@
+#Archivo Conf NuevoPassword
+#Sun Dec 11 19:22:02 CET 2022
+ip=127.0.0.1
+port=4000
+rootPath=/api/
