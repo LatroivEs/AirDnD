@@ -1,7 +1,7 @@
 package com.mycompany.interfazapartahoteles;
-
-import com.mashape.unirest.http.Unirest;
 import com.mycompany.conAPI.APIcon;
+import com.mycompany.models.dog.Client;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.HashMap;
 import javafx.fxml.FXML;
@@ -18,13 +18,18 @@ public class Login {
     @FXML
     private Label feedback;
     
-     @FXML
+    @FXML
     private void cargarReserva() throws IOException {
         HashMap<String, String> listaUsuario = new HashMap<String, String>();
-        
+        Gson gson = new Gson();
         listaUsuario.put("Antonio","1234");
         listaUsuario.put("Pedro","12345");
-        HttpResponse<JsonNode> apiResponse = Unirest.get("https://dog.ceo/api/breeds/image/random").asJson();
+        APIcon conn = new APIcon();
+        String json = conn.getMethod("cliente/3");
+        
+         System.out.println(json.toLowerCase());
+         Client cl1 = gson.fromJson(json.toLowerCase(), Client.class);
+         System.err.println(cl1.getEmail());
         
         if(listaUsuario.containsKey(UserInput.getText()))
             if(listaUsuario.get(UserInput.getText()).equals(PasswordInput.getText())){
@@ -34,8 +39,7 @@ public class Login {
                 
             }
         else{
-            feedback.setText("Usuario Incorrecto");
-            
+            feedback.setText("Usuario Incorrecto");           
         }
             
     }

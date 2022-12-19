@@ -141,7 +141,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="reservaButton" layoutX="370.0" layoutY="648.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="123.0" text="RESERVAR">
+            <Button fx:id="reservaButton" layoutX="370.0" layoutY="648.0" mnemonicParsing="false" onAction="#onReserva" prefHeight="39.0" prefWidth="123.0" text="RESERVAR">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

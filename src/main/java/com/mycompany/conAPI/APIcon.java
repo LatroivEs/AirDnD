@@ -22,8 +22,8 @@ public class APIcon {
     public String getMethod(String path){
         StringBuilder response = new StringBuilder();
         try{
-
-            URL url = new URL("http:://"+conf.getIp()+":"+conf.getPort()+conf.getRootPath()+path);
+            
+            URL url = new URL("http://"+conf.getIp()+":"+conf.getPort()+conf.getRootPath()+path);
             System.out.println(url.toString());
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             conn.setRequestMethod("GET");
