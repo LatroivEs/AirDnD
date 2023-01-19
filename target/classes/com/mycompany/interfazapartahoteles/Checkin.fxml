@@ -115,13 +115,13 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <TableView layoutX="310.0" layoutY="155.0" prefHeight="508.0" prefWidth="593.0">
+            <TableView fx:id="tableView" layoutX="310.0" layoutY="155.0" prefHeight="508.0" prefWidth="593.0">
               <columns>
-                  <TableColumn fx:id="Apart_Name_id" prefWidth="60.0" text="Nº Apart." />
+                  <TableColumn fx:id="n_apar" prefWidth="60.0" text="Nº Apart." />
                 <TableColumn fx:id="name" prefWidth="90.0" text="Nombre" />
                 <TableColumn fx:id="surname" prefWidth="87.0" text="Apelllidos" />
                   <TableColumn fx:id="phone" prefWidth="63.0" text="Telefono" />
-                  <TableColumn fx:id="start_date" prefWidth="75.0" text="Fecha" />
+                  <TableColumn fx:id="email" prefWidth="75.0" text="Email" />
                   <TableColumn fx:id="details" prefWidth="217.0" text="Details" />
               </columns>
             </TableView>

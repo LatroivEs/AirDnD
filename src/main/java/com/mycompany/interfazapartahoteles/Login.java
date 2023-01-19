@@ -24,6 +24,7 @@ public class Login {
         Gson gson = new Gson();
         listaUsuario.put("Antonio","1234");
         listaUsuario.put("Pedro","12345");
+        listaUsuario.put("","");
         APIcon conn = new APIcon();
         String json = conn.getMethod("cliente/3");
         

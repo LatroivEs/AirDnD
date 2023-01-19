@@ -1,7 +1,15 @@
 com\mycompany\interfazapartahoteles\VistaReserva.class
 com\mycompany\interfazapartahoteles\Init.class
+com\mycompany\interfazapartahoteles\Login.class
+com\mycompany\interfazapartahoteles\Checkin.class
+com\mycompany\interfazapartahoteles\Checkout.class
+com\mycompany\models\dog\Client.class
+com\mycompany\session\AirDnDSession.class
+module-info.class
+com\mycompany\models\dog\ReservaAirDnD.class
+com\mycompany\models\dog\Check.class
 com\mycompany\conAPI\ConfApiCon.class
 com\mycompany\interfazapartahoteles\App.class
 com\mycompany\conAPI\APIcon.class
-module-info.class
+com\mycompany\models\dog\UserAirDnD.class
 com\mycompany\interfazapartahoteles\App2.class

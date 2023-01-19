@@ -10,13 +10,13 @@ import java.sql.Date;
  *
  * @author AJM
  */
-public class Check {
+public class Check{
     
     private String name;
     private String surname;
     private String email;
-    private int Apart_Name_id;
-    private Date start_date;
+    private String phone;
+    private String apart_name_id;
     private String details;
     
     public Check(){}
@@ -45,20 +45,20 @@ public class Check {
         this.email = email;
     }
 
-    public int getApart_Name_id() {
-        return Apart_Name_id;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setApart_Name_id(int Apart_Name_id) {
-        this.Apart_Name_id = Apart_Name_id;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public Date getStart_date() {
-        return start_date;
+    public String getApart_name_id() {
+        return apart_name_id;
     }
 
-    public void setStart_date(Date start_date) {
-        this.start_date = start_date;
+    public void setApart_name_id(String apart_name_id) {
+        this.apart_name_id = apart_name_id;
     }
 
     public String getDetails() {
@@ -67,7 +67,5 @@ public class Check {
 
     public void setDetails(String details) {
         this.details = details;
-    }
-    
-    
+    }  
 }

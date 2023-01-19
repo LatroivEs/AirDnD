@@ -14,4 +14,5 @@ module com.mycompany.interfazapartahoteles {
 
     opens com.mycompany.interfazapartahoteles to javafx.fxml;
     exports com.mycompany.interfazapartahoteles;
+    exports com.mycompany.models.dog;
 }
