@@ -3,13 +3,15 @@ package com.mycompany.interfazapartahoteles;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mycompany.conAPI.APIcon;
+import com.mycompany.conAPI.JasperDB;
 import com.mycompany.models.dog.Check;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +21,13 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import java.sql.Date;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class Checkin implements Initializable {
 
@@ -63,48 +72,61 @@ public class Checkin implements Initializable {
     private void switchUI(String path) throws IOException {
         App.setRoot(path);
     }
+    
     @FXML
     private void populateDataTable() throws Exception{
         
-        Gson gson = new GsonBuilder().setDateFormat(DATE_FORMAT).create();        
-        APIcon conn = new APIcon();
-        System.out.println(date_checkin.getValue().format(DateTimeFormatter.ofPattern("MM-dd-yyyy")));
-        String json = conn.getMethod("checkin/"+date_checkin.getValue().format(DateTimeFormatter.ofPattern("MM-dd-yyyy")));
-        System.out.println( json);
-        Check[] checkList = gson.fromJson(json.toLowerCase(), Check[].class);
-        if(checkList.length>0){
-            System.out.println(checkList[0].getApart_name_id()+" "+checkList[0].getName()+" "+checkList[0].getSurname());
-        }
-        ObservableList<Check> obCheckList = FXCollections.observableArrayList();
-        obCheckList.addAll(Arrays.asList(checkList));
-         if(checkList.length>0) {
-            tableView.setItems(obCheckList);
-        }else{
-            tableView.setItems(null);
-        }
-        System.out.println(obCheckList);
+        LocalDate newLD = date_checkin.getValue();
+        populateDataTable(newLD);
     }
     
-      private void populateFirsTime() throws Exception{
+    private void populateFirsTime() throws Exception{
+
+        populateDataTable(LocalDate.now());
+    }
+    
+    private void populateDataTable(LocalDate ld) throws Exception{
+      Gson gson = new GsonBuilder().setDateFormat(DATE_FORMAT).create();        
+      APIcon conn = new APIcon();
+      date_checkin.setValue(ld);
+      //System.out.println(ld.format(DateTimeFormatter.ofPattern("MM-dd-yyyy")));
+      
+      String json = conn.getMethod("checkin/"+ld.format(DateTimeFormatter.ofPattern(DATE_FORMAT)));
+      
+      //System.out.println( json);
+      Check[] checkList = gson.fromJson(json.toLowerCase(), Check[].class);
+      if(checkList.length>0){
+          System.out.println(checkList[0].getApart_name_id()+" "+checkList[0].getName()+" "+checkList[0].getSurname());
+      }
+      ObservableList<Check> obCheckList = FXCollections.observableArrayList();
+      obCheckList.addAll(Arrays.asList(checkList));
+      if(checkList.length>0) {
+          tableView.setItems(obCheckList);
+      }else{
+          tableView.setItems(null);
+      }
+    }
+    
+    @FXML
+    private void checkinreport() throws Exception{
+        JasperDB jdb = new JasperDB();
+        JasperReport jr = null;
+        String path = ".\\src\\main\\resources\\com\\mycompany\\informes\\CheckInReport.jasper";
+        try{
+            jr =(JasperReport)JRLoader.loadObjectFromFile(path);
+        }catch(JRException e){
+           System.out.println("Error al cargar la plantilla del informe");
+        }
         
-        Gson gson = new GsonBuilder().setDateFormat(DATE_FORMAT).create();        
-        APIcon conn = new APIcon();
-        LocalDate ld = LocalDate.of(2022,12,05);
-        date_checkin.setValue(LocalDate.of(2022,12,05));
-        System.out.println(ld.format(DateTimeFormatter.ofPattern("MM-dd-yyyy")));
-        String json = conn.getMethod("checkin/"+ld.format(DateTimeFormatter.ofPattern("MM-dd-yyyy")));
-        System.out.println( json);
-        Check[] checkList = gson.fromJson(json.toLowerCase(), Check[].class);
-        if(checkList.length>0){
-            System.out.println(checkList[0].getApart_name_id()+" "+checkList[0].getName()+" "+checkList[0].getSurname());
-        }
-        ObservableList<Check> obCheckList = FXCollections.observableArrayList();
-        obCheckList.addAll(Arrays.asList(checkList));
-        if(checkList.length>0) {
-            tableView.setItems(obCheckList);
-        }else{
-            tableView.setItems(null);
-        }
-        System.out.println(obCheckList);
+        Map param = new HashMap();
+        param.put("Fecha", Date.valueOf(date_checkin.getValue()));
+        
+        JasperPrint jp = JasperFillManager.fillReport(jr,param,jdb.GetConnection());
+        
+        JasperViewer visualizador =  new JasperViewer(jp,false);
+        visualizador.setTitle("Informe Check-In");
+        visualizador.setVisible(true);
+        
+        jdb.close();
     }
 }

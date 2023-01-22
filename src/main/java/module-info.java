@@ -4,7 +4,7 @@ module com.mycompany.interfazapartahoteles {
         
 //needed for HTTP
     requires unirest.java;
-    
+    requires jasperreports;
     //needed for JSON
     requires com.google.gson;
     requires java.sql;
@@ -16,3 +16,4 @@ module com.mycompany.interfazapartahoteles {
     exports com.mycompany.interfazapartahoteles;
     exports com.mycompany.models.dog;
 }
+

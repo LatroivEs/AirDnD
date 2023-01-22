@@ -47,7 +47,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.interfazapartahoteles.Checkin">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.interfazapartahoteles.Checkout">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -90,7 +90,7 @@
     </MenuBar>
     <AnchorPane maxHeight="800.0" maxWidth="1200.0" minHeight="800.0" minWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
          <children>
-            <Label fx:id="header" layoutX="551.0" layoutY="43.0" text="Check-in">
+            <Label fx:id="header" layoutX="551.0" layoutY="43.0" text="Check-Out">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -105,7 +105,7 @@
                   <Image url="@image.png" />
                </image>
             </ImageView>
-            <Button fx:id="ImprimirCheckIn" layoutX="730.0" layoutY="686.0" mnemonicParsing="false" onAction="#checkinreport" prefHeight="48.0" prefWidth="173.0" text="Salvar Informe">
+            <Button fx:id="ImprimirCheckOut" layoutX="730.0" layoutY="686.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="173.0" text="Salvar Informe">
                <font>
                   <Font size="18.0" />
                </font>

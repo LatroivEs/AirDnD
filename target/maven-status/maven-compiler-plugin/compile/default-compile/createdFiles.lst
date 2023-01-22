@@ -6,6 +6,7 @@ com\mycompany\interfazapartahoteles\Checkout.class
 com\mycompany\models\dog\Client.class
 com\mycompany\session\AirDnDSession.class
 module-info.class
+.netbeans_automatic_build
 com\mycompany\models\dog\ReservaAirDnD.class
 com\mycompany\models\dog\Check.class
 com\mycompany\conAPI\ConfApiCon.class
@@ -13,3 +14,4 @@ com\mycompany\interfazapartahoteles\App.class
 com\mycompany\conAPI\APIcon.class
 com\mycompany\models\dog\UserAirDnD.class
 com\mycompany\interfazapartahoteles\App2.class
+com\mycompany\conAPI\JasperDB.class

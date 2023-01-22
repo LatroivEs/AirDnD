@@ -105,12 +105,7 @@
                   <Image url="@image.png" />
                </image>
             </ImageView>
-            <Button fx:id="siguienteButton" layoutX="653.0" layoutY="686.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="173.0" text="Siguiente">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="atrasButton" layoutX="386.0" layoutY="686.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="120.0" text="Atras">
+            <Button fx:id="ImprimirCheckIn" layoutX="730.0" layoutY="686.0" mnemonicParsing="false" onAction="#checkinreport" prefHeight="48.0" prefWidth="173.0" text="Salvar Informe">
                <font>
                   <Font size="18.0" />
                </font>
