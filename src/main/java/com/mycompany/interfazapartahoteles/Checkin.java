@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperReport;
@@ -52,6 +53,11 @@ public class Checkin implements Initializable {
     @FXML
     private TableColumn<Check, String> details;
     
+    @FXML
+    private Button hfecha;
+    @FXML
+    private Button hinforme;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb){
         n_apar.setCellValueFactory(new PropertyValueFactory<Check, String>("apart_name_id"));
@@ -65,6 +71,13 @@ public class Checkin implements Initializable {
         }catch(Exception e){
             System.err.println("Error iniciando el datatable");
         }
+        
+        HelpInside.setTooltip(hfecha,
+                "Pon la fecha en la cual quieres\n" +
+                " ver las entradas de clientes.\n");
+        HelpInside.setTooltip(hinforme,
+                "Pulsa para generar el informe\n" +
+                " de check-in.\n");
           
     }
             

@@ -6,7 +6,6 @@ com\mycompany\interfazapartahoteles\Checkout.class
 com\mycompany\models\dog\Client.class
 com\mycompany\session\AirDnDSession.class
 module-info.class
-.netbeans_automatic_build
 com\mycompany\models\dog\ReservaAirDnD.class
 com\mycompany\models\dog\Check.class
 com\mycompany\conAPI\ConfApiCon.class

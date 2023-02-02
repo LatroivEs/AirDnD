@@ -3,7 +3,6 @@ module com.mycompany.interfazapartahoteles {
     requires javafx.fxml;
         
 //needed for HTTP
-    requires unirest.java;
     requires jasperreports;
     //needed for JSON
     requires com.google.gson;

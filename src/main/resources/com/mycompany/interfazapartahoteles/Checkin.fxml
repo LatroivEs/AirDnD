@@ -105,7 +105,7 @@
                   <Image url="@image.png" />
                </image>
             </ImageView>
-            <Button fx:id="ImprimirCheckIn" layoutX="730.0" layoutY="686.0" mnemonicParsing="false" onAction="#checkinreport" prefHeight="48.0" prefWidth="173.0" text="Salvar Informe">
+            <Button fx:id="ImprimirCheckIn" layoutX="702.0" layoutY="687.0" mnemonicParsing="false" onAction="#checkinreport" prefHeight="48.0" prefWidth="173.0" text="Guardar Informe">
                <font>
                   <Font size="18.0" />
                </font>
@@ -120,12 +120,22 @@
                   <TableColumn fx:id="details" prefWidth="217.0" text="Details" />
               </columns>
             </TableView>
-            <Label fx:id="header1" layoutX="653.0" layoutY="103.0" text="Fecha">
+            <Label fx:id="header1" layoutX="631.0" layoutY="103.0" text="Fecha">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <DatePicker fx:id="date_checkin" layoutX="729.0" layoutY="104.0" onAction="#populateDataTable" />
+            <Button fx:id="hfecha" graphicTextGap="0.0" layoutX="878.0" layoutY="104.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="?" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <DatePicker fx:id="date_checkin" layoutX="701.0" layoutY="104.0" onAction="#populateDataTable" />
+            <Button fx:id="hinforme" graphicTextGap="0.0" layoutX="878.0" layoutY="699.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="?" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
          </children>
     </AnchorPane>
   </children>
