@@ -44,7 +44,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -227,8 +227,8 @@
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="620.0" layoutY="644.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="69.0" text="Continuar" />
-            <Button layoutX="394.0" layoutY="644.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" text="Atras" />
+            <Button layoutX="620.0" layoutY="644.0" mnemonicParsing="false" onAction="#botonContinuarOnClick" prefHeight="27.0" prefWidth="69.0" text="Continuar" />
+            <Button layoutX="394.0" layoutY="644.0" mnemonicParsing="false" onAction="#botonAtrasOnClick" prefHeight="27.0" prefWidth="71.0" text="Atras" />
          </children>
     </AnchorPane>
   </children>

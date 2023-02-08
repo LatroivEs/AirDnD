@@ -26,6 +26,11 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import java.sql.Date;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
@@ -36,6 +41,13 @@ public class Checkin implements Initializable {
     private DatePicker date_checkin;
     
     private static final String DATE_FORMAT = "MM-dd-yyyy";
+    
+    private APPData info;
+    
+    private Stage stagehelp;
+    
+    @FXML 
+    private AnchorPane root;
     
     //TableView
     @FXML
@@ -60,6 +72,9 @@ public class Checkin implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb){
+        
+        info = APPData.getAPPData();
+        
         n_apar.setCellValueFactory(new PropertyValueFactory<Check, String>("apart_name_id"));
         name.setCellValueFactory(new PropertyValueFactory<Check, String>("name"));
         surname.setCellValueFactory(new PropertyValueFactory<Check, String>("surname"));
@@ -142,4 +157,54 @@ public class Checkin implements Initializable {
         
         jdb.close();
     }
+
+     
+    //Nav Event
+    @FXML
+    private void chechinOnClick(){
+        changeScene("Checkin");
+    }
+    @FXML
+    private void chechoutOnClick(){
+        changeScene("Checkout");
+    }
+    @FXML
+    private void reservaOnClick(){
+        changeScene("VistaReserva");
+    }
+    
+    private void changeScene(String scene){
+        try{
+            App.setRoot(scene);
+        }catch(IOException ie){
+            ie.printStackTrace();
+        }
+    }
+    
+    //HelpView    
+    @FXML
+     public void helpOnclick() {
+        Parent root;
+        if(stagehelp == null){
+        try {
+            System.out.println(App.loadFXML("help"));
+            root= App.loadFXML("help");
+            stagehelp = new Stage();
+            stagehelp.setTitle("Ayuda");
+            stagehelp.setScene(new Scene(root, 450, 450));
+            stagehelp.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        }else{
+            try{
+                root= App.loadFXML("help");
+                stagehelp.setScene(new Scene(root, 450, 450));
+                stagehelp.show();
+            }catch(IOException e) {
+                e.printStackTrace();
+        }
+        }
+      }
 }

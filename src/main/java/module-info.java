@@ -7,6 +7,7 @@ module com.mycompany.interfazapartahoteles {
     //needed for JSON
     requires com.google.gson;
     requires java.sql;
+    requires javafx.web;
     //needed for JSON
     opens com.mycompany.models.dog to com.google.gson;
     

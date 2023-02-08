@@ -46,7 +46,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="com.mycompany.interfazapartahoteles.DatosCliente">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.interfazapartahoteles.DatosCliente">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -140,7 +140,7 @@
                </font>
             </Label>
             <TextArea fx:id="clienteObservacionesInput" layoutX="386.0" layoutY="516.0" prefHeight="139.0" prefWidth="440.0" />
-            <Button fx:id="siguienteButton" layoutX="653.0" layoutY="686.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="173.0" text="Siguiente">
+            <Button fx:id="siguienteButton" layoutX="653.0" layoutY="686.0" mnemonicParsing="false" onAction="#botonSiguienteOnClick" prefHeight="48.0" prefWidth="173.0" text="Siguiente">
                <font>
                   <Font size="18.0" />
                </font>
@@ -151,9 +151,44 @@
                </font>
             </Label>
             <TextField fx:id="documentoInput" layoutX="528.0" layoutY="252.0" prefHeight="25.0" prefWidth="298.0" />
-            <Button fx:id="atrasButton" layoutX="386.0" layoutY="686.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="120.0" text="Atras">
+            <Button fx:id="atrasButton" layoutX="386.0" layoutY="686.0" mnemonicParsing="false" onAction="#botonAtrasOnClick" prefHeight="48.0" prefWidth="120.0" text="Atras">
                <font>
                   <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="hnombre" layoutX="839.0" layoutY="171.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="?">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="hemail" layoutX="839.0" layoutY="335.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="?">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="hdni" layoutX="839.0" layoutY="252.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="?">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="hapellidos" layoutX="839.0" layoutY="211.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="?">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="htelefono" layoutX="839.0" layoutY="294.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="?">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="hnacionalidad" layoutX="839.0" layoutY="376.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="?">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="hobservaciones" layoutX="516.0" layoutY="481.0" maxHeight="25.0" maxWidth="25.0" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="?">
+               <font>
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Button>
          </children>
