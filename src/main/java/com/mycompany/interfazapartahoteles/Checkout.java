@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -136,9 +137,8 @@ public class Checkout implements Initializable{
     private void checkoutreport() throws Exception{
         JasperDB jdb = new JasperDB();
         JasperReport jr = null;
-        String path = ".\\src\\main\\resources\\com\\mycompany\\informes\\CheckOutReport.jasper";
         try{
-            jr =(JasperReport)JRLoader.loadObjectFromFile(path);
+            jr =(JasperReport)JRLoader.loadObject(Checkin.class.getResource("CheckOutReport.jasper"));
         }catch(JRException e){
            System.out.println("Error al cargar la plantilla del informe");
         }
@@ -183,8 +183,8 @@ public class Checkout implements Initializable{
         Parent root;
         if(stagehelp == null){
         try {
-            System.out.println(App.loadFXML("help"));
-            root= App.loadFXML("help");
+            FXMLLoader fxmlLoader = new FXMLLoader(Checkout.class.getResource("Help.fxml"));
+            root= fxmlLoader.load();
             stagehelp = new Stage();
             stagehelp.setTitle("Ayuda");
             stagehelp.setScene(new Scene(root, 450, 450));
@@ -195,7 +195,8 @@ public class Checkout implements Initializable{
         }
         }else{
             try{
-                root= App.loadFXML("help");
+                FXMLLoader fxmlLoader = new FXMLLoader(Checkout.class.getResource("Help.fxml"));
+                root= fxmlLoader.load();
                 stagehelp.setScene(new Scene(root, 450, 450));
                 stagehelp.show();
             }catch(IOException e) {

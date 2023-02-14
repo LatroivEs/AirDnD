@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -111,8 +112,9 @@ public class Login implements Initializable{
         Parent root;
         if(stagehelp == null){
         try {
-            System.out.println(App.loadFXML("help"));
-            root= App.loadFXML("help");
+            
+            FXMLLoader fxmlLoader = new FXMLLoader(APPData.getHelp());
+            root= fxmlLoader.load();
             stagehelp = new Stage();
             stagehelp.setTitle("Ayuda");
             stagehelp.setScene(new Scene(root, 450, 450));
@@ -123,7 +125,8 @@ public class Login implements Initializable{
         }
         }else{
             try{
-            root= App.loadFXML("help");
+            FXMLLoader fxmlLoader = new FXMLLoader(APPData.getHelp());
+            root= fxmlLoader.load();
             stagehelp.setScene(new Scene(root, 450, 450));
             stagehelp.show();
             }catch(IOException e) {

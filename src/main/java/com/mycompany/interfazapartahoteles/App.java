@@ -41,8 +41,6 @@ public class App extends Application {
     
     static URL loadHelp(String html) throws IOException{
         String path = html + ".html";
-        System.out.println(App.class.getResource(path));
-        System.out.println(path);
         
         return App.class.getResource(path);
     }

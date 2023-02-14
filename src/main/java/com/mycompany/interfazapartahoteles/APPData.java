@@ -4,6 +4,11 @@
  */
 package com.mycompany.interfazapartahoteles;
 
+import com.mycompany.models.dog.Client;
+import com.mycompany.models.dog.ReservaAirDnD;
+import java.net.URL;
+import javafx.scene.Parent;
+
 /**
  *
  * @author AJM
@@ -11,6 +16,10 @@ package com.mycompany.interfazapartahoteles;
 public class APPData {
     
     private static APPData me;
+    private static URL screen;
+    
+    private static Client cl;
+    private static ReservaAirDnD rairddnd;
     
     private String fxmlname;
        
@@ -35,6 +44,28 @@ public class APPData {
     
     public void setInfo(String newfxmlname){
         fxmlname = newfxmlname;
+    }
+    public static Client getClient(){
+        return cl;
+    }
+    
+    public static void setClient(Client cliente){
+        cl = cliente;
+    }
+    
+    public static ReservaAirDnD getReservaAirDnD(){
+        return rairddnd;
+    }
+    
+    public static void setReservaAirDnD(ReservaAirDnD reserva){
+        rairddnd = reserva;
+    }
+    
+    public static URL getHelp(){
+        if(screen == null){
+           screen = APPData.class.getResource("Help.fxml"); 
+        }
+        return screen;
     }
     
 }

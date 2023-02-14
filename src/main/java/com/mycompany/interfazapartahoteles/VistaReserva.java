@@ -1,16 +1,20 @@
 package com.mycompany.interfazapartahoteles;
 
 import com.mycompany.conAPI.APIcon;
+import com.mycompany.models.dog.ReservaAirDnD;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import java.sql.Date;
 
 public class VistaReserva implements Initializable {
 
@@ -26,7 +30,10 @@ public class VistaReserva implements Initializable {
     private Button hReservar;
     @FXML
     private Button hprecio;
-    
+    @FXML
+    private DatePicker entradaSelector;
+    @FXML
+    private DatePicker salidaSelector;
     private APPData info;
     
     private Stage stagehelp;
@@ -59,7 +66,21 @@ public class VistaReserva implements Initializable {
 
     @FXML
     private void onReserva() throws IOException {
-        switchUI("Checkin");
+        
+        try{
+        ReservaAirDnD rairdnd = new ReservaAirDnD();
+        
+        rairdnd.setStart_date(Date.valueOf(entradaSelector.getValue()));
+        rairdnd.setFinish_Date(Date.valueOf(salidaSelector.getValue()));
+        
+        APPData.setReservaAirDnD(rairdnd);
+        
+        switchUI("DatosCliente");
+        }catch(Exception e){
+            System.err.println("Campos Obligatorios no rellenos");   
+        }
+        
+        
     }
 
     //Nav Event
@@ -90,8 +111,8 @@ public class VistaReserva implements Initializable {
         Parent root;
         if(stagehelp == null){
         try {
-            System.out.println(App.loadFXML("help"));
-            root= App.loadFXML("help");
+            FXMLLoader fxmlLoader = new FXMLLoader(VistaReserva.class.getResource("Help.fxml"));
+            root= fxmlLoader.load();
             stagehelp = new Stage();
             stagehelp.setTitle("Ayuda");
             stagehelp.setScene(new Scene(root, 450, 450));
@@ -102,7 +123,8 @@ public class VistaReserva implements Initializable {
         }
         }else{
             try{
-                root= App.loadFXML("help");
+                FXMLLoader fxmlLoader = new FXMLLoader(VistaReserva.class.getResource("Help.fxml"));
+                root= fxmlLoader.load();
                 stagehelp.setScene(new Scene(root, 450, 450));
                 stagehelp.show();
             }catch(IOException e) {
